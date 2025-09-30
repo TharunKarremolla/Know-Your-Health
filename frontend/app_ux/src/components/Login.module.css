@@ -1,0 +1,29 @@
+.login{
+    display: flex;
+    width: 1000px;
+    margin : 80px auto;
+    align-items: center;
+}
+
+.login div{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 150px;
+    /* background-color: red; */
+}
+
+.login div input{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(187, 186, 186);
+}
+
+.login div button{
+    border: none;
+    background-color: #14bef0;
+     margin: 10px;
+     color: white;
+    padding: 10px;
+}

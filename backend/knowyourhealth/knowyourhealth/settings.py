@@ -15,7 +15,7 @@ SECRET_KEY = "django-insecure-$qg=x7u&3v88d)7=!=g%j=)gujw2tpn*eq4ggx($=!ov#c-vxy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -29,9 +29,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'rest_framework',
     'lab',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+     'corsheaders.middleware.CorsMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -42,6 +44,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "knowyourhealth.urls"
+
+
+# CORS_ALLOWED_ORIGINS = [
+#     'https://bug-free-space-engine-56xq9vg4p94h4j56-3000.app.github.dev'
+# ]
 
 TEMPLATES = [
     {
@@ -57,7 +64,8 @@ TEMPLATES = [
         },
     },
 ]
-
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
 WSGI_APPLICATION = "knowyourhealth.wsgi.application"
 
 

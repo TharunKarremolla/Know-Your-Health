@@ -1,24 +1,39 @@
 import styles from './Navbar.module.css';
 import { Link } from 'react-router-dom';
-import { usestate } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function Labs() {
+    const [details,setDetails] = useState([])
 
-    // const fetch_labs = async() =>{
-    //     const awa
-    // }
+    const fetch_labs = async() =>{
+        try{
+        const res = await axios.get('https://bug-free-space-engine-56xq9vg4p94h4j56-8000.app.github.dev/api/labs/')
+     
+        setDetails(res.data)
+        }catch(error){
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        fetch_labs();
+    },[details])
 
 
     return (
         <div>
-            <nav className={styles.navBar}>
-           <h1>Know Your Health</h1>
-           <div>
-            <Link >Labs</Link>
-             <Link>RegisterLab</Link>
-             <buton><Link to='/Login'>Login ? SignUp</Link></buton>
-           </div>
-           </nav>
+         
+          {/* <h1>labs</h1> */}
+          {details.map((detail) => (
+            <div key={detail.id}>
+                <h3>{detail.name}</h3>
+                <p>{detail.address}</p>
+                </div>
+          ) )}
+         
+      
+        
 
             </div>
     )

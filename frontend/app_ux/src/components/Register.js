@@ -1,16 +1,29 @@
-import styles from './Navbar.module.css';
 import { Link } from 'react-router-dom';
 import logo from './logo.png';
+import axios from 'axios';
+import { useState } from 'react';
+import styles from './Register.module.css';
 
 export default function Register() {
+    const [username,setUsername] = useState('')
+      const [email,setEmail] = useState('')
+        const [password,setPassword] = useState('')
+    const handleSubmit = async() => {
+        try{
+        const res = await axios.post('https://bug-free-space-engine-56xq9vg4p94h4j56-8000.app.github.dev/api/users/details/',{username,password,email})
+        console.log(res.data)
+    }catch(error){
+        console.log(error)
+    }}
     return (
-        <div>
+        <div className={styles.register}>
             <img src={logo} width={394} alt='logo' />
            <div>
-          <input type='text' placeholder='username'></input>
-           <input type='email' placeholder='email'></input>
-          <input type='password' placeholder='password'></input>
-             <buton><Link to='/Login'>SignUp</Link></buton>
+           
+          <input type='text' placeholder='username' onChange={(e)=>setUsername(e.target.value)}></input>
+           <input type='email' placeholder='email' onChange={(e)=>setEmail(e.target.value)}></input>
+          <input type='password' placeholder='password' onChange={(e)=>setPassword(e.target.value)}></input>
+             <button onClick={handleSubmit}>SignUp</button>
              <p>New User? <Link to='/Login'>Login</Link></p>
            </div>
          

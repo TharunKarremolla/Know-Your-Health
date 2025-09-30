@@ -11,10 +11,22 @@
 
 .navBar div{
     display: flex;
+    width: 400px;
+  
     justify-content: space-between;
+    align-items: center;
    
   
 }
 .navBar h1{
     margin: 0;
+}
+
+
+.navBar  button{
+    border: 1px solid #14bef0;
+    background-color: transparent;
+     margin: 10px;
+     color: white;
+    padding: 10px;
 }

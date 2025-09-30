@@ -1,15 +1,15 @@
-import styles from './Navbar.module.css';
+import styles from './Login.module.css';
 import { Link } from 'react-router-dom';
 import logo from './logo.png';
 
 export default function Login() {
     return (
-        <div>
+        <div className={styles.login}>
                <img src={logo} width={394} alt='logo' />
            <div>
           <input type='text' placeholder='username'></input>
           <input type='password' placeholder='password'></input>
-             <buton><Link to='/Login'>Login</Link></buton>
+             <button>Login</button>
              <p>Existing User ? <Link to='/Register'>SignUp</Link></p>
            </div>
          
