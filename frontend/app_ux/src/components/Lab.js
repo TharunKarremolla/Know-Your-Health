@@ -8,7 +8,9 @@ export default function Labs() {
 
     const fetch_labs = async() =>{
         try{
-        const res = await axios.get('https://bug-free-space-engine-56xq9vg4p94h4j56-8000.app.github.dev/api/labs/')
+        const res = await axios.get('https://bug-free-space-engine-56xq9vg4p94h4j56-8000.app.github.dev/api/labs/',{
+            withCredentials : true
+        })
      
         setDetails(res.data)
         }catch(error){
@@ -29,6 +31,7 @@ export default function Labs() {
             <div key={detail.id}>
                 <h3>{detail.name}</h3>
                 <p>{detail.address}</p>
+                <button>Schedule</button>
                 </div>
           ) )}
          

@@ -66,6 +66,14 @@ TEMPLATES = [
 ]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = [
+       'https://bug-free-space-engine-56xq9vg4p94h4j56-3000.app.github.dev'
+    ]
+
+CSRF_COOKIE_NAME = "csrftoken"
+CSRF_COOKIE_HTTPONLY = False 
+CSRF_COOKIE_SAMESITE = 'None' 
+CSRF_COOKIE_SECURE = True  
 WSGI_APPLICATION = "knowyourhealth.wsgi.application"
 
 

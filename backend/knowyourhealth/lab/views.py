@@ -6,11 +6,13 @@ from rest_framework.response import Response
 from .serializers import LabSerializer
 from rest_framework import status
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+
 def index(request):
     return HttpResponse("kasdfh")
-@csrf_exempt
+
+@login_required
 @api_view(['GET','POST'])
 def labs(request):
     if request.method == 'GET':
@@ -25,4 +27,6 @@ def labs(request):
            
             serializer.save()
             return Response(serializer.data,status = status.HTTP_201_CREATED)
+
+
 

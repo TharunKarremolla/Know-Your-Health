@@ -12,21 +12,32 @@
 .navBar div{
     display: flex;
     width: 400px;
-  
+    padding: 10px 0;
     justify-content: space-between;
     align-items: center;
+    
    
   
 }
 .navBar h1{
     margin: 0;
+    margin-left: 40px;
 }
 
 
 .navBar  button{
-    border: 1px solid #14bef0;
+    border: 1px solid rgb(219, 219, 219);
     background-color: transparent;
      margin: 10px;
-     color: white;
     padding: 10px;
+    border-radius: 5px;
+    margin-right: 25px;
+}
+.navlink{
+    font-size: x-large;
+}
+
+a{
+   text-decoration: none;
+   color: black;
 }
