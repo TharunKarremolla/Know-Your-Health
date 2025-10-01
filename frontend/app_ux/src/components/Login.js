@@ -29,7 +29,6 @@ export default function Login() {
             }
         )
         console.log(res.data)
-        // setUser(res.data.username)
         localStorage.setItem('user',JSON.stringify(res.data.username))
         navigate('/Home')
     }catch(error){

@@ -1,9 +1,11 @@
 from django.contrib import admin
 from django.urls import path,include
-from .views import index,labs
+from .views import labs,appointments,send_email,MyAppointments
 
 urlpatterns = [
   
-    path("", index),
+      path('appointments/',appointments),
       path("labs/", labs),
+      path('email/',send_email),
+       path('MyAppointments/',MyAppointments)
 ]

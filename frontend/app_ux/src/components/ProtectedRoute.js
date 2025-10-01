@@ -1,10 +1,12 @@
 import  { Navigate } from 'react-router-dom';
 import axios from 'axios';
+import React from 'react';
 import { useState,useEffect } from 'react';
+
 export default function ProtectedRoute({children}) {
      const [loading, setLoading] = useState(true);
       const [user,setUser] = useState('') 
-   console.log(user)
+   
 
     useEffect(() => {
   const fetchUser = async () => {
@@ -15,9 +17,9 @@ export default function ProtectedRoute({children}) {
       );
       console.log('result', res.data);
 
-      if (res.data.username) {
-        setUser(res.data.username);
-        localStorage.setItem('user', JSON.stringify(res.data.username));
+      if (res.data.user) {
+        setUser(res.data);
+        localStorage.setItem('user', JSON.stringify(res.data));
       } else {
         setUser(null);
         localStorage.removeItem('user');
@@ -42,5 +44,5 @@ export default function ProtectedRoute({children}) {
     }
    
    
-    return children
+    return React.Children.map(children,(child) => child ?  React.cloneElement(child, { user }) : null)
 }
