@@ -13,7 +13,8 @@ from .serializers import UserSerializer,LoginSerializer
 
 @api_view(['GET'])
 def user(request):
-    return JsonResponse({'username' :request.user.username})
+    user = list(User.objects.filter(username = request.user.username).values('id','username','email'))
+    return JsonResponse({'user' : user})
 
 
 
